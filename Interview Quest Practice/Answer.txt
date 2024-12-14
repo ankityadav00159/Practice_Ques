@@ -1,0 +1,90 @@
+Q1. What is Node.js ?
+
+Node.js is a technology that allows us to run JavaScript code on the server side, outside of a web browser. It uses an event-driven which makes it efficient and lightweight for building fast and scalable applications. Essentially, it enables us to create server-side applications using JavaScript, which was originally designed for client-side scripting in web browsers.
+
+Q2. What is the event loop in Node.js?
+
+The event loop in Node.js is a mechanism that allows Node.js to handle multiple operations like reading files, querying a database, without blocking the program. It works by continuously checking for tasks that need to be completed and executing them in a non-blocking, asynchronous manner.
+
+example : 
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Task 1 is done!");
+}, 2000);
+
+console.log("End");
+
+Q3. What are the core modules in Node.js?
+
+Core modules in Node.js are built-in libraries that come with Node.js, so we don't need to install them separately. These modules provide essential functionalities like working with files, networking, creating web servers, and more.
+
+example: fs, http, path, url
+
+Q4. What is the purpose of the require() function in Node.js?
+
+The require() function in Node.js is used to import modules, files, or libraries into our Node.js program. It allows us to access functionality from external code like built-in modules, third-party modules, or our own local files.
+
+example : 
+let http = require('http)
+
+Q5. What is the difference between require and import in Node.js?
+
+In Node.js, both require and import are used to load modules, but there are key differences:
+
+1. require():
+  a. CommonJS syntax older, traditional.
+  b. Synchronous (blocks the code execution until the module is loaded).
+  c. Can be used in all versions of Node.js even before ES Modules support.
+  d. Used for both built-in and local modules.
+
+2. import
+  a. Asynchronous supports
+  b. Requires Node.js v12 or higher
+  c. Only works with ESM modules not CommonJS by default.
+
+Q6. What are callbacks in Node.js?
+
+A callback in Node.js is a function passed as an argument to another function. The callback function is executed after the completion of an asynchronous operation, like reading a file or fetching data from a server
+
+Q7. What is npm in Node.js?
+
+npm (Node Package Manager) is a tool that comes with Node.js to help us to manage and share JavaScript code. It allows us to install libraries and packages (called modules) that others have written, as well as manage dependencies for our project.
+
+example:
+npm install express
+
+Q8. What is the difference between process.nextTick(), setImmediate(), and setTimeout() in Node.js?
+
+In Node.js, process.nextTick(), setImmediate(), and setTimeout() all schedule functions to run, but they do so at different times in the event loop.
+
+1. process.nextTick()
+Executes the callback immediately after the current operation, before any  tasks or timers.
+
+It has higher priority than setImmediate() and setTimeout()
+
+2. setImmediate()
+
+Executes the callback in the next iteration of the event loop, after any events.
+
+It's used to schedule tasks after events.
+
+3. setTimeout()
+
+Executes the callback after a specified delay in milliseconds.
+
+It schedules the callback to run after at least the given time, but not exactly.
+
+Q9. How do you handle errors in Node.js?
+
+In Node.js, errors can be handled using callbacks, try-catch blocks, and error events. Proper error handling ensures that the application doesn't crash and that errors are properly managed.
+
+const fs = require('fs');
+
+fs.readFile('readFile.txt', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+    return;
+  }
+  console.log('File content:', data);
+});
